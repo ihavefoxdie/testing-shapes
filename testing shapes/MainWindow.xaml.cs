@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text.Json;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -17,11 +17,30 @@ namespace testing_shapes
     public partial class MainWindow : Window
     {
         PeriodicTimer periodicTimer = new PeriodicTimer(TimeSpan.FromMilliseconds(100));
+        double _scale = 1;
+        double Scale
+        {
+            get
+            {
+                return _scale;
+            }
+            set
+            {
+                if (value <= 0)
+                {
+                    return;
+                }
+                _scale = value;
+            }
+        }
 
-    public MainWindow()
+        public MainWindow()
         {
             InitializeComponent();
-            
+            Enlarge.IsEnabled = false;
+            Enlarge.Opacity = 0;
+            Deflate.IsEnabled = false;
+            Deflate.Opacity = 0;
         }
 
         private async void DrawRectangle()
@@ -29,27 +48,18 @@ namespace testing_shapes
             bool fail = false;
             while (await periodicTimer.WaitForNextTickAsync())
             {
+                MyScale.ScaleY = 10 * Scale;
+                MyScale.ScaleX = 10 * Scale;
+
                 if (canvas.Children.Count > 0)
                 {
                     if (!fail)
                         canvas.Children.Clear();
                 }
-                Rectangle exampleRectangle = new Rectangle();
-                exampleRectangle.Width = 150;
-                exampleRectangle.Height = 150;
-                // Create a SolidColorBrush and use it to
-                // paint the rectangle.
+
                 SolidColorBrush myBrush = new SolidColorBrush(Colors.Blue);
                 myBrush.Opacity = 0.5;
-                exampleRectangle.Stroke = Brushes.Red;
-                exampleRectangle.StrokeThickness = 4;
-                exampleRectangle.Fill = myBrush;
-                Rectangle newRect = new Rectangle();
-                newRect.Width = 150;
-                newRect.Height = 150;
-                newRect.Fill = myBrush;
-                newRect.Stroke = Brushes.Red;
-                newRect.StrokeThickness = 4;
+
                 string serializedPolygon;
 
                 try
@@ -63,7 +73,7 @@ namespace testing_shapes
                 }
                 fail = false;
                 var deserialized = JsonSerializer.Deserialize<List<PolygonForJson>>(serializedPolygon);
-                
+
                 List<Polygon> items = new List<Polygon>();
                 for (int i = 0; i < deserialized.Count; i++)
                 {
@@ -81,8 +91,7 @@ namespace testing_shapes
                 }
 
 
-                MyScale.ScaleY = 10;
-                MyScale.ScaleX = 10;
+               
                 int n = 0;
                 for (int i = 0; i < items.Count; i++)
                 {
@@ -102,14 +111,25 @@ namespace testing_shapes
 
         }
 
-        private void Rectangle_SourceUpdated(object sender, DataTransferEventArgs e)
-        {
-            DrawRectangle();
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Run_Button.IsEnabled = false;
+            Run_Button.Opacity = 0;
             DrawRectangle();
+            Enlarge.IsEnabled = true;
+            Enlarge.Opacity = 1;
+            Deflate.IsEnabled = true;
+            Deflate.Opacity = 1;
+        }
+
+        private void Deflate_Click(object sender, RoutedEventArgs e)
+        {
+            Scale -= 0.25;
+        }
+
+        private void Enlarge_Click(object sender, RoutedEventArgs e)
+        {
+            Scale += 0.25;
         }
     }
 }

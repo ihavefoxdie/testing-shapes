@@ -8,35 +8,6 @@
         Title="Polygon visualizer" Height="450" Width="800">
     
     <Grid>
-        <Grid Margin="10">
-            <Canvas Margin="10" x:Name="canvas" VerticalAlignment="Top" HorizontalAlignment="Left">
-                <Canvas.LayoutTransform>
-                    <ScaleTransform x:Name="MyScale" />
-                </Canvas.LayoutTransform>
-            </Canvas>
-        </Grid>
-        
-        <Button x:Name="Run_Button" Click="Button_Click" FontFamily="Montserrat" FontSize="20" Content="Run" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="50" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
-            <Button.Effect>
-                <DropShadowEffect ShadowDepth="1" BlurRadius="10" Opacity="0.1"/>
-            </Button.Effect>
-        </Button>
-        <Grid Margin="10" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            
-            <Button Margin="10" Grid.Row="0" x:Name="Enlarge" Click="Enlarge_Click" FontFamily="Montserrat" FontSize="15" Content="+" Width="25" Height="25" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
-                <Button.Effect>
-                    <DropShadowEffect ShadowDepth="1" BlurRadius="10" Opacity="0.1"/>
-                </Button.Effect>
-            </Button>
-            <Button Margin="10" Grid.Row="1" x:Name="Deflate" Click="Deflate_Click" FontFamily="Montserrat" FontSize="15" Content="-"  Width="25" Height="25" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
-                <Button.Effect>
-                    <DropShadowEffect ShadowDepth="1" BlurRadius="10" Opacity="0.1"/>
-                </Button.Effect>
-            </Button>
-        </Grid>
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

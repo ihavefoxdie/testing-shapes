@@ -16,7 +16,7 @@ namespace testing_shapes
     /// </summary>
     public partial class Polygons : Page
     {
-        double _scale = 1;
+        double _scale = 1.25;
         bool KeepUp = false;
         Task? _task;
         CancellationTokenSource cancelTokenSource;
@@ -103,10 +103,20 @@ namespace testing_shapes
                         fail = true;
                         continue;
                     }
+
                     items = new List<Polygon>();
 
                     for (int i = 0; i < deserialized.Count; i++)
                     {
+                        if (deserialized[i] == null)
+                            continue;
+
+                        if (deserialized[i].JaggedVertices == null)
+                            continue;
+
+                        if (deserialized[i].JaggedVertices.GetLength(0) != 4)
+                            break;
+
                         if (deserialized[i].Name == "")
                         {
                             polyColor = backroundBrush;
@@ -119,10 +129,10 @@ namespace testing_shapes
                             {
                                 Fill = polyColor,
                                 Points = {
-                                    new Point((double)deserialized[i].JaggedVertices[0][0], (double)deserialized[i].JaggedVertices[0][1]),
-                                    new Point((double)deserialized[i].JaggedVertices[1][0], (double)deserialized[i].JaggedVertices[1][1]),
-                                    new Point((double)deserialized[i].JaggedVertices[2][0], (double)deserialized[i].JaggedVertices[2][1]),
-                                    new Point((double)deserialized[i].JaggedVertices[3][0], (double)deserialized[i].JaggedVertices[3][1]),
+                                    new Point((double)deserialized[i].JaggedVertices![0][0], (double)deserialized[i].JaggedVertices![0][1]),
+                                    new Point((double)deserialized[i].JaggedVertices![1][0], (double)deserialized[i].JaggedVertices![1][1]),
+                                    new Point((double)deserialized[i].JaggedVertices![2][0], (double)deserialized[i].JaggedVertices![2][1]),
+                                    new Point((double)deserialized[i].JaggedVertices![3][0], (double)deserialized[i].JaggedVertices![3][1]),
                                 }
                             };
                             items.Add(polygon);
@@ -146,6 +156,8 @@ namespace testing_shapes
                         this.Dispatcher.Invoke(() =>
                         {
                             TextBlock text = new();
+                            text.Opacity = 0.7;
+                            text.FontFamily = HomeButton.FontFamily;
                             text.Text = deserialized[i].Name;
                             text.FontSize = 1;
                             text.RenderTransform = new TranslateTransform

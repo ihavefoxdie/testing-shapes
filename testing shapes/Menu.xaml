@@ -9,7 +9,7 @@
       Title="Menu">
 
     <Grid>
-        <Button x:Name="Run_Button" Click="Button_Click" FontFamily="Montserrat" FontSize="15" Content="Run" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="50" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
+        <Button x:Name="Run_Button" Click="Button_Click" FontFamily="Montserrat" FontSize="15" Content="Run" VerticalAlignment="Center" HorizontalAlignment="Center" Width="90" Height="60" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
             <Button.Effect>
                 <DropShadowEffect ShadowDepth="1" BlurRadius="10" Opacity="0.1"/>
             </Button.Effect>

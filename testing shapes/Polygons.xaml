@@ -23,12 +23,12 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button Margin="10" Grid.Row="0" x:Name="Enlarge" Click="Enlarge_Click" FontFamily="Montserrat" FontSize="15" Content="+" Width="25" Height="25" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
+            <Button Margin="10" Grid.Row="0" x:Name="Enlarge" Click="Enlarge_Click" FontFamily="Montserrat" FontSize="20" Content="+" Width="40" Height="40" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
                 <Button.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="10" Opacity="0.1"/>
                 </Button.Effect>
             </Button>
-            <Button Margin="10" Grid.Row="1" x:Name="Deflate" Click="Deflate_Click" FontFamily="Montserrat" FontSize="15" Content="-"  Width="25" Height="25" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
+            <Button Margin="10" Grid.Row="1" x:Name="Deflate" Click="Deflate_Click" FontFamily="Montserrat" FontSize="20" Content="-"  Width="40" Height="40" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
                 <Button.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="10" Opacity="0.1"/>
                 </Button.Effect>
@@ -40,17 +40,17 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Margin="10" Grid.Column="0" x:Name="Pause_Play" Click="Pause_Play_Click" FontFamily="Montserrat" FontSize="12" Width="60" Height="25" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
+            <Button Margin="10" Grid.Column="0" x:Name="Pause_Play" Click="Pause_Play_Click" FontFamily="Montserrat" FontSize="15" Width="90" Height="40" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
                 <Button.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="10" Opacity="0.1"/>
                 </Button.Effect>
             </Button>
-            <Button Margin="10" Grid.Column="1" x:Name="Reload" Click="Reload_Click" FontFamily="Montserrat" FontSize="12" Content="Reload" Width="60" Height="25" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
+            <Button Margin="10" Grid.Column="1" x:Name="Reload" Click="Reload_Click" FontFamily="Montserrat" FontSize="15" Content="Reload" Width="90" Height="40" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
                 <Button.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="10" Opacity="0.1"/>
                 </Button.Effect>
             </Button>
-            <Button Margin="10" Grid.Column="2" x:Name="HomeButton" Click="HomeButton_Click" FontFamily="Montserrat" FontSize="12" Content="To Menu" Width="60" Height="25" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
+            <Button Margin="10" Grid.Column="2" x:Name="HomeButton" Click="HomeButton_Click" FontFamily="Montserrat" FontSize="15" Content="To Menu" Width="90" Height="40" BorderBrush="#FFDDDDDD" Cursor="Hand" Background="#FFDDDDDD">
                 <Button.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="10" Opacity="0.1"/>
                 </Button.Effect>

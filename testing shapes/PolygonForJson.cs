@@ -6,11 +6,11 @@
 
     public int Height { get; set; }
 
-    public decimal[] Center { get; set; }
+    public decimal[]? Center { get; set; }
 
-    public decimal[][] JaggedVertices { get; set; }
+    public decimal[][]? JaggedVertices { get; set; }
 
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     public PolygonForJson(int ID, int Width, int Height, decimal[] Center, decimal [][] JaggedVertices, string Name)
     {

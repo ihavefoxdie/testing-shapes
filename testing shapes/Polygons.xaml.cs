@@ -141,8 +141,8 @@ namespace testing_shapes
 
                     this.Dispatcher.Invoke(() =>
                     {
-                        MyScale.ScaleY = 10 * Scale;
-                        MyScale.ScaleX = 10 * Scale;
+                        MyScale.ScaleY = 5 * Scale;
+                        MyScale.ScaleX = 5 * Scale;
 
                         if (canvas.Children.Count > 0)
                         {
@@ -159,7 +159,7 @@ namespace testing_shapes
                             text.Opacity = 0.7;
                             text.FontFamily = HomeButton.FontFamily;
                             text.Text = deserialized[i].Name;
-                            text.FontSize = 1;
+                            text.FontSize = 4 * Scale;
                             text.RenderTransform = new TranslateTransform
                             {
                                 X = items[i].Points[0].X,
@@ -179,12 +179,12 @@ namespace testing_shapes
 
         private void Deflate_Click(object sender, RoutedEventArgs e)
         {
-            Scale -= 0.25;
+            Scale -= 0.2;
         }
 
         private void Enlarge_Click(object sender, RoutedEventArgs e)
         {
-            Scale += 0.25;
+            Scale += 0.2;
         }
 
         private void Reload_Click(object sender, RoutedEventArgs e)
